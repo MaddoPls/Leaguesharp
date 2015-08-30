@@ -31,7 +31,6 @@ namespace Kekplank
 
 		public static void PreOrbwalker()
 		{
-			EWrapper.CastHelper.PopEWithAa();
 			if (Program.Config.get_bool("Auto R", "Settings")) AutoR();
 			if (Program.Config.get_bool("Auto Ignite", "Settings")) Ignite();
 			if (Program.Config.get_bool("Auto W", "Settings") && Program.Config.ManaLimitCheck("Auto W manalimiter", "Settings"))

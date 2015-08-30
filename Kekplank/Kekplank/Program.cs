@@ -55,13 +55,16 @@ namespace Kekplank
 			switch (Orbwalker.ActiveMode)
 			{
 				case Orbwalking.OrbwalkingMode.Combo:
+					EWrapper.CastHelper.PopEWithAa();
 					Combo();
 					break;
 				case Orbwalking.OrbwalkingMode.Mixed:
+					EWrapper.CastHelper.PopEWithAa();
 					Harass();
 					break;
 				case Orbwalking.OrbwalkingMode.LaneClear:
 				case Orbwalking.OrbwalkingMode.LastHit:
+					EWrapper.CastHelper.PopEWithAa();
 					Clear();
 					break;
 			}
