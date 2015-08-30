@@ -59,10 +59,12 @@ namespace Kekplank
 
 		private static void AutoR()
 		{
-			float dmg = ((30 + (Program.R.Level * 20) + (Program.Player.TotalMagicalDamage / 10))/10)*8;
-			foreach (Obj_AI_Hero target in Program.Enemies.Where(target => target.Health < dmg && Program.R.CanCast(target)))
+			float dmg = 360 + (240*Program.R.Level) + ((Program.Player.TotalMagicalDamage/10)*12);
+			Obj_AI_Hero tar = Program.R.GetTarget(20000);
+			if (tar == null) return;
+			if (Program.Player.CalcDamage(tar, Damage.DamageType.Magical, dmg) > tar.Health)
 			{
-				Program.R.CastOnUnit(target);
+				Program.R.CastOnUnit(tar);
 			}
 		}
 

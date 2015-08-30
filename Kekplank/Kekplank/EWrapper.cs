@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using LeagueSharp;
 using LeagueSharp.Common;
 using SharpDX;
@@ -53,14 +54,14 @@ namespace Kekplank
 
 			public static bool EnemiesInBlastRange()
 			{
-				return LiveBarrels.Any(barrel => Program.Enemies.Any(enemy => enemy.Distance(barrel.BarrelPos) < 400));
+				return LiveBarrels.Any(barrel => barrel.BarrelPos.CountEnemiesInRange(400) != 0);
 			}
 
 			public static void CastE()
 			{
 				if (Program.Config.SubMenu("Settings").Item("DisableE").GetValue<KeyBind>().Active) return;
 
-				Obj_AI_Hero tar = Program.Enemies.FirstOrDefault(enemy => Program.Player.Distance(enemy) < Program.E.Range);
+				Obj_AI_Hero tar = Program.Player.GetEnemiesInRange(Program.E.Range).FirstOrDefault();
 				if (tar == null || !Program.E.CanCast(tar) || !IsReadyE()) return;
 				try
 				{

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using LeagueSharp;
 using LeagueSharp.Common;
 
@@ -10,7 +8,6 @@ namespace Kekplank
 	{
 		/*
 			TODO LIST
-			Move to derived types
 			improve aa on e
 			add damage drawings/imnprove drawings
 		*/
@@ -21,7 +18,6 @@ namespace Kekplank
 		public static Menu Config;
 		public static Orbwalking.Orbwalker Orbwalker;
 		public static Spell Q, W, E, R, Ignite;
-		public static List<Obj_AI_Hero> Enemies; 
 
 		static void Main(string[] args)
 		{
@@ -46,13 +42,7 @@ namespace Kekplank
 
 			Config = Configuration.get_menu();
 			Config.AddToMainMenu();
-
-			Enemies = new List<Obj_AI_Hero>();
-			foreach (Obj_AI_Hero enemy in Player.GetEnemiesInRange(20000))
-			{
-				Enemies.Add(enemy);
-			}
-
+			
 			Game.OnUpdate += Game_OnUpdate;
 			Drawing.OnDraw += Drawings.Drawing_OnDraw;
 			GameObject.OnCreate += EWrapper.GameObject_OnCreate;
