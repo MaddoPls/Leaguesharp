@@ -16,7 +16,7 @@ namespace Kekplank
 
 		public static void GameObject_OnCreate(GameObject sender, EventArgs args)
 		{
-			if (sender.Name == "Barrel")
+			if (sender.Name == "Barrel" && sender.IsAlly)
 			{
 				Barrel barrel = new Barrel(sender);
 			}
