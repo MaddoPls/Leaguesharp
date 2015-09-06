@@ -55,10 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Casts.cs" />
-    <Compile Include="Configuration.cs" />
-    <Compile Include="Drawings.cs" />
-    <Compile Include="EWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
