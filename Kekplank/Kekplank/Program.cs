@@ -107,7 +107,8 @@ namespace Kekplank
 
 		private static void Game_OnUpdate(EventArgs args)
 		{
-			if (GetBool("main.settings.r")) Casts.R();
+		    if (Player.IsDead) return;
+		    if (GetBool("main.settings.r")) Casts.R();
 			if (GetBool("main.settings.ignite")) Casts.Ignite();
 			if (ManalimiterCheck("main.settings.w.wm") && GetBool("main.settings.w.enabled")) Casts.W();
 			targetedBarrelQ = null;
