@@ -12,17 +12,21 @@ namespace Kekplank
 	{
 		private static Obj_AI_Hero Player { get { return ObjectManager.Player; } }
 
-		private static Menu _config;
-		private static Orbwalking.Orbwalker _orbwalker;
-		private static Spell _q = new Spell(SpellSlot.Q, 625);
-		private static Spell _w = new Spell(SpellSlot.W);
-		private static Spell _e = new Spell(SpellSlot.E, 1000);
-		private static Spell _r = new Spell(SpellSlot.R);
-		private static Spell _ignite = new Spell(Player.GetSpellSlot("summonerdot"), 600, TargetSelector.DamageType.True);
-		private static List<Barrel> _livebarrels = new List<Barrel>();
-		private static Barrel _targetedBarrelQ;
-		private static float _connectionRange = 650;
-		private static float _explosionRange = 400;
+		private static Menu config;
+		private static Orbwalking.Orbwalker orbwalker;
+		private static Spell q = new Spell(SpellSlot.Q, 625);
+		private static Spell w = new Spell(SpellSlot.W);
+		private static Spell e = new Spell(SpellSlot.E, 1000);
+		private static Spell r = new Spell(SpellSlot.R);
+		private static Spell ignite = new Spell(Player.GetSpellSlot("summonerdot"), 600, TargetSelector.DamageType.True);
+		private static List<Barrel> livebarrels = new List<Barrel>();
+		private static Barrel targetedBarrelQ;
+		private const float ConnectionRange = 650;
+	    private const float ExtendConnectionRange = 585;
+		private const float ExplosionRange = 400;
+	    private const float SightRange = 1200;
+	    private const float Max = 845;
+	    private static bool eAllowed = true;
 
 		static void Main(string[] args)
 		{
@@ -36,10 +40,9 @@ namespace Kekplank
 
 		private static void Game_OnGameStart(EventArgs args)
 		{
-			.
-			//if (Player.ChampionName != "Gangplank") return;
+			if (Player.ChampionName != "Gangplank") return;
 
-			_r.SetSkillshot(0.7f, 200, float.MaxValue, false, SkillshotType.SkillshotCircle);
+			r.SetSkillshot(0.7f, 200, float.MaxValue, false, SkillshotType.SkillshotCircle);
 
 			LoadMenu();
 
@@ -51,249 +54,352 @@ namespace Kekplank
 
 		private static void LoadMenu()
 		{
-			_config = new Menu("Kekplank", "main", true);
+			config = new Menu("Kekplank", "main", true);
 
-			Menu orb = _config.AddSubMenu(new Menu("Orbwalker", "main.orbwalker"));
-			_orbwalker = new Orbwalking.Orbwalker(orb);
+			Menu orb = config.AddSubMenu(new Menu("Orbwalker", "main.orbwalker"));
+			orbwalker = new Orbwalking.Orbwalker(orb);
 
-			Menu targetSelector = _config.AddSubMenu(new Menu("Target selector", "main.targetselector"));
+			Menu targetSelector = config.AddSubMenu(new Menu("Target selector", "main.targetselector"));
 			TargetSelector.AddToMenu(targetSelector);
 
 			Menu combo = new Menu("Combo", "main.combo");
-			combo.Add_bool("Use Q", "main.combo.q", true);
-			combo.Add_bool("Use E", "main.combo.e", true);
-			combo.Add_bool("Bust E with Q", "main.combo.qe", true);
+			combo.AddBool("Use Q", "main.combo.q", true);
+			combo.AddBool("Use E", "main.combo.e", true);
+			combo.AddBool("Bust E with Q", "main.combo.qe", true);
 
 			Menu harass = new Menu("Harass", "main.harass");
-			harass.Add_bool("Use Q", "main.harass.q", true);
+			harass.AddBool("Use Q", "main.harass.q", true);
 			harass.AddItem(new MenuItem("main.harass.qm", "Manalimiter").SetValue(new Slider(55)));
 
 			Menu clear = new Menu("Clear", "main.clear");
-			clear.Add_bool("Q minions", "main.clear.q", true);
+			clear.AddBool("Q minions", "main.clear.q", true);
 			clear.AddItem(new MenuItem("main.clear.qm", "Manalimiter").SetValue(new Slider(55)));
 
 			Menu settings = new Menu("Settings", "main.settings");
 			Menu wsettings = new Menu("W settings", "main.settings.w");
-			wsettings.Add_bool("Slow", "main.settings.w.slow", false);
-			wsettings.Add_bool("Blind", "main.settings.w.blind", true);
-			wsettings.Add_bool("Polymorph", "main.settings.w.poly", true);
-			wsettings.Add_bool("Stun", "main.settings.w.stun", true);
-			wsettings.Add_bool("Taunt", "main.settings.w.taunt", true);
-			wsettings.Add_bool("Fear", "main.settings.w.fear", true);
-			wsettings.Add_bool("Charm", "main.settings.w.charm", true);
+			wsettings.AddBool("Slow", "main.settings.w.slow", false);
+			wsettings.AddBool("Blind", "main.settings.w.blind", true);
+			wsettings.AddBool("Polymorph", "main.settings.w.poly", true);
+			wsettings.AddBool("Stun", "main.settings.w.stun", true);
+			wsettings.AddBool("Taunt", "main.settings.w.taunt", true);
+			wsettings.AddBool("Fear", "main.settings.w.fear", true);
+			wsettings.AddBool("Charm", "main.settings.w.charm", true);
 			wsettings.AddItem(new MenuItem("main.settings.w.wm", "Manalimiter").SetValue(new Slider(15)));
-			wsettings.Add_bool("W enabled", "main.settings.w.enabled", true);
+			wsettings.AddBool("W enabled", "main.settings.w.enabled", true);
 			settings.AddSubMenu(wsettings);
-			settings.Add_bool("Auto R", "main.settings.r", true);
-			settings.Add_bool("Auto ignite", "main.settings.ignite", true);
+			settings.AddBool("Auto R", "main.settings.r", true);
+			settings.AddBool("Auto ignite", "main.settings.ignite", true);
 			settings.AddItem(
-				new MenuItem("Disable E from casting", "main.settings.disablee").SetValue(new KeyBind(0x41, KeyBindType.Press)));
+				new MenuItem("main.settings.disablee", "Disable E from casting").SetValue(new KeyBind(0x41, KeyBindType.Press)));
 
 			Menu drawings = new Menu("Drawings", "main.drawings");
-			drawings.Add_bool("Draw Q", "main.drawings.q", true);
-			drawings.Add_bool("Draw E", "main.drawings.e", false);
-			drawings.Add_bool("Draw focused barrel", "main.drawings.barrel", true);
+			drawings.AddBool("Draw Q", "main.drawings.q", true);
+			drawings.AddBool("Draw E", "main.drawings.e", false);
+			drawings.AddBool("Draw focused barrel", "main.drawings.barrel", true);
 
-			_config.AddSubMenu(combo);
-			_config.AddSubMenu(harass);
-			_config.AddSubMenu(clear);
-			_config.AddSubMenu(settings);
-			_config.AddSubMenu(drawings);
-			_config.AddToMainMenu();
+			config.AddSubMenu(combo);
+			config.AddSubMenu(harass);
+			config.AddSubMenu(clear);
+			config.AddSubMenu(settings);
+			config.AddSubMenu(drawings);
+			config.AddToMainMenu();
 		}
 
 		private static void Game_OnUpdate(EventArgs args)
 		{
-			if (Get_bool("main.settings.r")) Casts.R();
-			if (Get_bool("main.settings.ignite")) Casts.Ignite();
-			if (ManalimitCheck("main.settings.w.wm") && Get_bool("main.settings.w.enabled")) Casts.W();
-			_targetedBarrelQ = null;
-			_targetedBarrelQ = _livebarrels.FirstOrDefault(barrel => barrel.BarrelObj.IsValid && Player.Distance(barrel.BarrelObj) < _q.Range && barrel.IsReady);
+			if (GetBool("main.settings.r")) Casts.R();
+			if (GetBool("main.settings.ignite")) Casts.Ignite();
+			if (ManalimiterCheck("main.settings.w.wm") && GetBool("main.settings.w.enabled")) Casts.W();
+			targetedBarrelQ = null;
+		    targetedBarrelQ = Math.ClosestBarrelWherePosInExplosionRange(Player.ServerPosition.To2D());
 
-			switch (_orbwalker.ActiveMode)
+			switch (orbwalker.ActiveMode)
 			{
 				case Orbwalking.OrbwalkingMode.Combo:
+                    Combo();
 					break;
 				case Orbwalking.OrbwalkingMode.Mixed:
+                    Harass();
 					break;
 				case Orbwalking.OrbwalkingMode.LaneClear:
 				case Orbwalking.OrbwalkingMode.LastHit:
+                    Clear();
 					break;
 			}
 		}
 
-		private static class Casts
+	    private static void Combo()
+	    {
+	        if (
+	            Math.ClosestBarrelWherePosInExplosionRange(
+	                Player.GetEnemiesInRange(SightRange).First().ServerPosition.To2D()) != null) Casts.AttackBarrel();
+
+	        if (GetBool("main.combo.qe"))
+            {
+                if (targetedBarrelQ != null)
+                {
+                    Barrel bar =
+                        Math.ClosestBarrelWherePosInExplosionRange(
+                            Player.GetEnemiesInRange(SightRange).First().ServerPosition.To2D());
+
+                    if (bar != null) Casts.QMinion(bar.BarrelObj);
+                }
+            }
+
+            if (GetBool("main.combo.e") && config.Item("main.settings.disablee").GetValue<KeyBind>().Active.Equals(false))
+            {
+                Casts.EHero();
+            }
+
+            if (GetBool("main.combo.q"))
+            {
+                Obj_AI_Hero target = TargetSelector.GetTarget(q.Range, q.DamageType);
+                if (target != null)
+                {
+                    Casts.QHero(target);
+                }
+            }
+        }
+
+	    private static void Harass()
+	    {
+	        if (GetBool("main.harass.q") && ManalimiterCheck("main.harass.qm"))
+	        {
+                Obj_AI_Hero target = TargetSelector.GetTarget(q.Range, q.DamageType);
+	            if (target != null)
+	            {
+                    Casts.QHero(target);
+                }
+
+            }
+	    }
+
+	    private static void Clear()
+	    {
+            Casts.AttackBarrel();
+	        if (GetBool("main.clear.q") && ManalimiterCheck("main.clear.qm"))
+	        {
+	            Obj_AI_Minion targetMinion = MinionManager.GetMinions(q.Range).FirstOrDefault() as Obj_AI_Minion;
+	            if (targetMinion != null)
+	            {
+                    Casts.QMinion(targetMinion);
+	            }
+	        }
+	    }
+
+
+	    private static class Casts
 		{
-			internal static void R()
+		    internal static void R()
 			{
-				if (!_r.IsReady()) return;
-				float dmg = 360 + (240*_r.Level) + ((Player.TotalMagicalDamage/10)*12);
+				if (!r.IsReady()) return;
+				float dmg = 360 + (240*r.Level) + ((Player.TotalMagicalDamage/10)*12);
 				Obj_AI_Hero target = HeroManager.Enemies.FirstOrDefault(enemy => dmg > enemy.Health);
 				if (target == null) return;
-				_r.CastOnUnit(target);
+				r.CastOnUnit(target);
 			}
 
 			internal static void W()
 			{
-				if (!_w.IsReady() || !Player.HasDebuffs()) return;
-				_w.Cast();
+				if (!w.IsReady() || !Player.HasDebuffs()) return;
+				w.Cast();
 			}
 
 			internal static void Ignite()
 			{
 				int dmg = (Player.Level*20) + 50;
-				foreach (Obj_AI_Hero tar in Player.GetEnemiesInRange(_ignite.Range).Where(tar => dmg >= tar.Health && _ignite.IsReady()))
+				foreach (Obj_AI_Hero tar in Player.GetEnemiesInRange(ignite.Range).Where(tar => dmg >= tar.Health && ignite.IsReady()))
 				{
-					_ignite.Cast(tar);
+					ignite.Cast(tar);
 				}
 			}
 
 			internal static void QMinion(Obj_AI_Minion minion)
 			{
-				if (!_q.IsReady() || Player.Distance(minion.Position) > _q.Range) return;
-				_q.CastOnUnit(minion);
+				if (!q.IsReady() || Player.Distance(minion.ServerPosition) > q.Range || q.GetDamage(minion) < minion.Health || Player.Distance(minion.ServerPosition) < Player.AttackRange) return;
+				q.CastOnUnit(minion);
 			}
 
 			internal static void QHero(Obj_AI_Hero hero)
 			{
-				if (!_q.IsReady() || Player.Distance(hero.Position) > _q.Range) return;
-				_q.CastOnUnit(hero);
+				if (!q.IsReady() || Player.Distance(hero.ServerPosition) > q.Range) return;
+				q.CastOnUnit(hero);
 			}
 
 			internal static void EMinion()
 			{
-				if (!_e.IsReady() || MinionManager.GetMinions(_e.Range).Count.Equals(0)) return;
+				if (!e.IsReady() || MinionManager.GetMinions(e.Range).Count.Equals(0)) return;
 
-				List<Vector2> minionPos = MinionManager.GetMinionsPredictedPositions(MinionManager.GetMinions(_e.Range), _e.Delay, _e.Width, _e.Speed, Player.Position,
-					_e.Range, false, _e.Type);
-				MinionManager.FarmLocation castPos = MinionManager.GetBestCircularFarmLocation(minionPos, _e.Width, _e.Range);
-				if (castPos.MinionsHit != 0) _e.Cast(castPos.Position);
+				List<Vector2> minionPos = MinionManager.GetMinionsPredictedPositions(MinionManager.GetMinions(e.Range), e.Delay, e.Width, e.Speed, Player.ServerPosition,
+					e.Range, false, e.Type);
+				MinionManager.FarmLocation castPos = MinionManager.GetBestCircularFarmLocation(minionPos, e.Width, e.Range);
+				if (castPos.MinionsHit != 0) e.Cast(castPos.Position);
 			}
 
-			internal static void EHero()
+		    internal static void EHero()
 			{
-				if (!_e.IsReady() ||
-				    (Player.GetEnemiesInRange(_e.Range).Count == 0 && MinionManager.GetMinions(_e.Range).Count == 0)) return;
-
-				if (_livebarrels.Count == 0)
-				{
-					List<Obj_AI_Hero> enemies = Player.GetEnemiesInRange(_e.Range);
-					switch (enemies.Count)
-					{
-						case 0:
-							return;
-						case 1:
-							_e.Cast(_e.GetPrediction(enemies[0], true).CastPosition);
-							break;
-						default:
-							List<Vector2> positions = enemies.Select(enemy => enemy.Position.To2D()).ToList();
-							int count = positions.Count;
-							float x = 0, y = 0;
-							foreach (Vector2 vector2 in positions)
-							{
-								x += vector2.X;
-								y += vector2.Y;
-							}
-							x = x / count;
-							y = y / count;
-							Vector2 center = new Vector2(x, y);
-							_e.Cast(center);
-							break;
-					}
-				}
-				else
-				{
-					List<Obj_AI_Hero> enemies = Player.GetEnemiesInRange(1200);
-					switch (enemies.Count)
-					{
-						case 0:
-							return;
-						case 1:
-							Obj_AI_Hero enemy = enemies[0];
-							List<Barrel> avaibleBarrels = _livebarrels.Where(barrel => Player.Distance(enemy) > barrel.BarrelObj.Distance(enemy)).ToList();
-							//if enemy is in explosion range of a barrel
-							//	extend position of that barrel via the enemy to 90% of barrelConnectionRange*2 then shorten it back into the e cast range
-							//		if the barrels connect cast it
-							//		else shorten the barrel back into the connectionrange
-							//else
-							//	find closest barrel
-							//		if enemy is in 90% of that barrels connectionrange*2 cast barrel on enemy
-							//		else shorten the barrel back into the connectionrange
-							//			if the barrel is in castrange cast it
-							//			else shorten it back into the cast range
-
-							break;
-						default:
-							break;
-					}
-				}
+		        if (!e.IsReady() || eAllowed.Equals(false)) return;
+                List<Obj_AI_Hero> enemies = Player.GetEnemiesInRange(SightRange);
+		        if (enemies.Count == 0) return;
+		        if (livebarrels.Count == 0 || livebarrels == null)
+		        {
+                    switch (enemies.Count)
+                    {
+                        case 0:
+                            return;
+                        case 1:
+                            Vector3 castPos = Player.ServerPosition.Extend(enemies[0].ServerPosition, e.Range / 2);
+                            e.Cast(castPos);
+                            break;
+                        default:
+                            Vector2 center = Math.GetCenter(enemies);
+                            Vector3 castPos2 = Player.ServerPosition.Extend(center.To3D(), e.Range / 2);
+                            e.Cast(castPos2);
+                            break;
+                    }
+                }
+		        else
+		        {
+		            switch (enemies.Count)
+		            {
+                        case 0:
+                            return;
+                        case 1:
+                            Barrel closestBarrel = Math.ClosestBarrel(enemies[0].ServerPosition.To2D());
+		                    if (enemies[0].ServerPosition.Distance(closestBarrel.BarrelObj.Position) < 1000)
+		                    {
+                                Vector3 vertex0 = closestBarrel.BarrelObj.Position.Extend(enemies[0].ServerPosition, ConnectionRange);
+                                Vector3 vertex1 = closestBarrel.BarrelObj.Position.Extend(Player.ServerPosition, ConnectionRange);
+                                Vector2 castPos = Math.Average(vertex0.To2D(), vertex1.To2D());
+                                e.Cast(castPos);
+                            }
+                            break;
+                        default:
+		                    var center2 = Math.GetCenter(enemies);
+		                    Barrel closestBarrel2 = Math.ClosestBarrel(center2);
+		                    if (center2.Distance(closestBarrel2.BarrelObj.Position) < 1000)
+		                    {
+		                        Vector3 vertex0 = closestBarrel2.BarrelObj.Position.Extend(center2.To3D(), ConnectionRange);
+		                        Vector3 vertex1 = closestBarrel2.BarrelObj.Position.Extend(Player.ServerPosition, ConnectionRange);
+		                        Vector2 castPos = Math.Average(vertex0.To2D(), vertex1.To2D());
+		                        e.Cast(castPos);
+		                    }
+                            break;
+		            }
+		        }
 			}
+
+	        internal static void AttackBarrel()
+	        {
+	            if (livebarrels.Count == 0) return;
+	            Barrel bartar = Math.ClosestBarrel(Player.ServerPosition.To2D());
+	            if (bartar == null) return;
+	            if (Player.ServerPosition.Distance(bartar.BarrelObj.Position) < Player.AttackRange && bartar.BarrelObj.IsValidTarget() && bartar.BarrelObj.IsTargetable)
+	            {
+	                Player.IssueOrder(GameObjectOrder.AttackUnit, bartar.BarrelObj);
+	            }
+	        }
 		}
 
 		internal static class Math
 		{
-			public static Barrel ClosestBarrelWhereEnemyInExplosionRange(Obj_AI_Hero hero)
-			{
-				Barrel[] inExplosionRange =
-					_livebarrels.Where(barrel => barrel.BarrelObj.GetEnemiesInRange(_explosionRange).Count != 0).ToArray();
-				if (inExplosionRange.Length == 0) return null;
-				float[] distances = new float[inExplosionRange.Length];
-				for (int i = 0; i < inExplosionRange.Length; i++)
-				{
-					distances[i] = Player.Distance(inExplosionRange[i].BarrelObj);
-				}
-				int index = distances.IndexOf(new[] {distances.Min()}).First();
-				return inExplosionRange[index];
-			}
+		    public static Vector2 GetCenter(List<Vector2> vertices)
+		    {
+		        float x = 0, y = 0;
+		        foreach (Vector2 vertex in vertices)
+		        {
+		            x += vertex.X;
+		            y += vertex.Y;
+		        }
+		        x = x / vertices.Count;
+		        y = y / vertices.Count;
+		        return new Vector2(x, y);
+		    }
+
+            public static Vector2 GetCenter(List<Obj_AI_Hero> heroes)
+            {
+                List<Vector2> vertices = heroes.Select(h => h.ServerPosition.To2D()).ToList();
+                float x = 0, y = 0;
+                foreach (Vector2 vertex in vertices)
+                {
+                    x += vertex.X;
+                    y += vertex.Y;
+                }
+                x = x / vertices.Count;
+                y = y / vertices.Count;
+                return new Vector2(x, y);
+            }
+
+            public static Barrel ClosestBarrel(Vector2 position)
+		    {
+                if (livebarrels.Count == 0) return null;
+                return livebarrels.OrderBy(b => b.BarrelObj.ServerPosition.Distance(position.To3D())).FirstOrDefault();
+		    }
+
+		    public static Barrel ClosestBarrelWherePosInExplosionRange(Vector2 position)
+		    {
+                if (livebarrels.Count == 0) return null;
+                return livebarrels.Where(b => b.BarrelObj.ServerPosition.Distance(position.To3D()) < ExplosionRange).ToList().OrderBy(b => b.BarrelObj.ServerPosition.Distance(position.To3D())).FirstOrDefault();
+            }
+
+		    public static Vector2 Average(Vector2 vertex0, Vector2 vertex1)
+		    {
+                return new Vector2((vertex0.X + vertex1.X)/2, (vertex0.Y + vertex1.Y)/2);
+		    }
 		}
 
 		private static void GameObject_OnDelete(GameObject sender, EventArgs args)
 		{
-			foreach (Barrel barrel in _livebarrels.Where(barrel => barrel.BarrelObj.NetworkId == sender.NetworkId)) _livebarrels.Remove(barrel);
+			foreach (Barrel barrel in livebarrels.Where(barrel => barrel.BarrelObj.NetworkId == sender.NetworkId)) livebarrels.Remove(barrel);
 		}
 
 		private static void GameObject_OnCreate(GameObject sender, EventArgs args)
 		{
-			if (sender.Name == "Barrel") _livebarrels.Add(new Barrel(sender as Obj_AI_Minion));
+		    if (sender.Name == "Barrel")
+		    {
+		        livebarrels.Add(new Barrel(sender as Obj_AI_Minion));
+		        eAllowed = false;
+                Utility.DelayAction.Add(2000, () => eAllowed = true);
+		    }
 		}
 
 		private static void Drawing_OnDraw(EventArgs args)
 		{
-			if (Get_bool("main.drawings.q") && _q.Level > 0)
-				Render.Circle.DrawCircle(Player.Position, _q.Range, _q.IsReady() ? Color.BlueViolet : Color.Red);
+			if (GetBool("main.drawings.q") && q.Level > 0)
+				Render.Circle.DrawCircle(Player.Position, q.Range, q.IsReady() ? Color.BlueViolet : Color.Red);
 
-			if (Get_bool("main.drawings.e") && _e.Level > 0)
-				Render.Circle.DrawCircle(Player.Position, _e.Range, _e.IsReady() ? Color.BlueViolet : Color.Red);
+			if (GetBool("main.drawings.e") && e.Level > 0)
+				Render.Circle.DrawCircle(Player.Position, e.Range, e.IsReady() ? Color.BlueViolet : Color.Red);
 
-			if (Get_bool("main.drawings.barrel") && _q.Level > 0 && _targetedBarrelQ != null)
-				Render.Circle.DrawCircle(_targetedBarrelQ.BarrelObj.Position, 100, _e.IsReady() ? Color.BlueViolet : Color.Red);
+			if (GetBool("main.drawings.barrel") && q.Level > 0 && targetedBarrelQ != null)
+				Render.Circle.DrawCircle(targetedBarrelQ.BarrelObj.Position, 100, q.IsReady() ? Color.BlueViolet : Color.Red);
 		}
 
-		private static void Add_bool(this Menu menu, string displayName, string name, bool value)
+		private static void AddBool(this Menu menu, string displayName, string name, bool value)
 		{
 			menu.AddItem(new MenuItem(name, displayName).SetValue(value));
 		}
 
-		private static bool Get_bool(string name)
+		private static bool GetBool(string name)
 		{
-			return _config.Item(name).GetValue<bool>();
+			return config.Item(name).GetValue<bool>();
 		}
 
-		private static bool ManalimitCheck(string name)
+		private static bool ManalimiterCheck(string name)
 		{
-			return Player.ManaPercent > _config.Item(name).GetValue<Slider>().Value;
+			return Player.ManaPercent > config.Item(name).GetValue<Slider>().Value;
 		}
 
 		private static bool HasDebuffs(this Obj_AI_Hero champ)
 		{
 			List<BuffType> debuffs = new List<BuffType>();
-			if (Get_bool("main.settings.w.slow")) debuffs.Add(BuffType.Slow);
-			if (Get_bool("main.settings.w.blind")) debuffs.Add(BuffType.Blind);
-			if (Get_bool("main.settings.w.poly")) debuffs.Add(BuffType.Polymorph);
-			if (Get_bool("main.settings.w.stun")) debuffs.Add(BuffType.Stun);
-			if (Get_bool("main.settings.w.taunt")) debuffs.Add(BuffType.Taunt);
-			if (Get_bool("main.settings.w.fear")) debuffs.Add(BuffType.Fear);
-			if (Get_bool("main.settings.w.charm")) debuffs.Add(BuffType.Charm);
+			if (GetBool("main.settings.w.slow")) debuffs.Add(BuffType.Slow);
+			if (GetBool("main.settings.w.blind")) debuffs.Add(BuffType.Blind);
+			if (GetBool("main.settings.w.poly")) debuffs.Add(BuffType.Polymorph);
+			if (GetBool("main.settings.w.stun")) debuffs.Add(BuffType.Stun);
+			if (GetBool("main.settings.w.taunt")) debuffs.Add(BuffType.Taunt);
+			if (GetBool("main.settings.w.fear")) debuffs.Add(BuffType.Fear);
+			if (GetBool("main.settings.w.charm")) debuffs.Add(BuffType.Charm);
 			return debuffs.Any(champ.HasBuffOfType);
 		}
 
@@ -304,14 +410,14 @@ namespace Kekplank
 
 			public Barrel(Obj_AI_Minion barrelObj)
 			{
-				BarrelObj = barrelObj;
-				DelayReady();
+			    this.BarrelObj = barrelObj;
+			    this.DelayReady();
 			}
 
 			private void DelayReady()
 			{
 				int decayT = Player.Level > 6 ? (Player.Level > 12 ? 1000 : 2000) : 4000;
-				Utility.DelayAction.Add(decayT, () => IsReady = true);
+				Utility.DelayAction.Add(decayT, () => this.IsReady = true);
 			}
 		}
 	}
