@@ -141,10 +141,10 @@ namespace Sona
                 if (!r.IsReady()) return;
                 Obj_AI_Hero target = TargetSelector.GetTarget(Player, r.Range, r.DamageType);
                 if (target == null) return;
+                int minHit = config.Item("main.combo.rminhit").GetValue<Slider>().Value;
                 switch (prediction)
                 {
                     case "Common":
-                        int minHit = config.Item("main.combo.rminhit").GetValue<Slider>().Value;
                         switch (minHit)
                         {
                             case 1:
@@ -156,16 +156,15 @@ namespace Sona
                         }
                         break;
                     case "SPrediction":
-                        HitChance hitChance;
-                        Vector2 spred = SPrediction.Prediction.GetPrediction(
-                            target,
-                            r,
-                            target.GetWaypoints(),
-                            target.AvgMovChangeTime(),
-                            target.LastMovChangeTime(),
-                            target.AvgPathLenght(), out hitChance,
-                            Player.ServerPosition);
-                        r.Cast(spred);
+                        switch (minHit)
+                        {
+                            case 1:
+                                r.SPredictionCast(target, HitChance.High);
+                                break;
+                            default:
+                                r.SPredictionCast(target, HitChance.High, 0, (byte)minHit);
+                                break;
+                        }
                         break;
                 }
             }
