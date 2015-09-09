@@ -198,7 +198,7 @@ namespace Kekplank
 			{
 				if (!r.IsReady()) return;
 				float dmg = 360 + (240*r.Level) + ((Player.TotalMagicalDamage/10)*12);
-				Obj_AI_Hero target = HeroManager.Enemies.FirstOrDefault(enemy => dmg > enemy.Health);
+		        Obj_AI_Hero target = Player.GetEnemiesInRange(20000).FirstOrDefault(enemy => enemy.Health < dmg);
 				if (target == null) return;
 				r.CastOnUnit(target);
 			}
