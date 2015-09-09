@@ -93,6 +93,7 @@ namespace Kekplank
 			settings.AddBool("Auto ignite", "main.settings.ignite", true);
 			settings.AddItem(
 				new MenuItem("main.settings.disablee", "Disable E from casting").SetValue(new KeyBind(0x41, KeyBindType.Press)));
+            settings.AddBool("Auto pop barrel with Q", "main.settings.aqe", true);
 
 			Menu drawings = new Menu("Drawings", "main.drawings");
 			drawings.AddBool("Draw Q", "main.drawings.q", true);
@@ -115,8 +116,9 @@ namespace Kekplank
 			if (ManalimiterCheck("main.settings.w.wm") && GetBool("main.settings.w.enabled")) Casts.W();
 			targetedBarrelQ = null;
 		    targetedBarrelQ = Math.ClosestBarrelWherePosInExplosionRange(Player.ServerPosition.To2D());
+		    if (GetBool("main.settings.aqe")) Casts.AQE();
 
-			switch (orbwalker.ActiveMode)
+		    switch (orbwalker.ActiveMode)
 			{
 				case Orbwalking.OrbwalkingMode.Combo:
                     Combo();
@@ -230,7 +232,14 @@ namespace Kekplank
 				q.CastOnUnit(hero);
 			}
 
-			internal static void EMinion()
+	        internal static void AQE()
+	        {
+	            if (!q.IsReady() || !Math.EnemyInBarrelExplosionRange()) return;
+	            Barrel closestBar = Math.ClosestReadyBarrel(Player.ServerPosition.To2D());
+	            if (closestBar.BarrelObj.GetEnemiesInRange(ExplosionRange).Count != 0) q.Cast(closestBar.BarrelObj);
+	        }
+
+	        internal static void EMinion()
 			{
 				if (!e.IsReady() || MinionManager.GetMinions(e.Range).Count.Equals(0)) return;
 
@@ -339,12 +348,26 @@ namespace Kekplank
                 if (livebarrels.Count == 0) return null;
                 return livebarrels.OrderBy(b => b.BarrelObj.ServerPosition.Distance(position.To3D())).FirstOrDefault();
 		    }
+            public static Barrel ClosestReadyBarrel(Vector2 position)
+            {
+                if (livebarrels.Count == 0) return null;
+                return
+                    livebarrels.Where(bar => bar.IsReady)
+                        .OrderBy(b => b.BarrelObj.ServerPosition.Distance(position.To3D()))
+                        .FirstOrDefault();
+            }
 
-		    public static Barrel ClosestBarrelWherePosInExplosionRange(Vector2 position)
+            public static Barrel ClosestBarrelWherePosInExplosionRange(Vector2 position)
 		    {
                 if (livebarrels.Count == 0) return null;
                 return livebarrels.Where(b => b.BarrelObj.ServerPosition.Distance(position.To3D()) < ExplosionRange).ToList().OrderBy(b => b.BarrelObj.ServerPosition.Distance(position.To3D())).FirstOrDefault();
             }
+
+		    public static bool EnemyInBarrelExplosionRange()
+		    {
+		        IEnumerable<Barrel> barrels = livebarrels.Where(bar => bar.IsReady);
+		        return barrels.Any(barrel => barrel.BarrelObj.GetEnemiesInRange(ExplosionRange).Count != 0);
+		    }
 
 		    public static Vector2 Average(Vector2 vertex0, Vector2 vertex1)
 		    {
