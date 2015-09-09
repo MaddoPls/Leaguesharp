@@ -20,6 +20,7 @@ namespace Kekplank
 		private static Spell r = new Spell(SpellSlot.R);
 		private static Spell ignite = new Spell(Player.GetSpellSlot("summonerdot"), 600, TargetSelector.DamageType.True);
 		private static List<Barrel> livebarrels = new List<Barrel>();
+        private static List<Barrel> allBarrels = new List<Barrel>(); 
 		private static Barrel targetedBarrelQ;
 		private const float ConnectionRange = 650;
 	    private const float ExtendConnectionRange = 585;
@@ -74,6 +75,7 @@ namespace Kekplank
 			Menu clear = new Menu("Clear", "main.clear");
 			clear.AddBool("Q minions", "main.clear.q", true);
 			clear.AddItem(new MenuItem("main.clear.qm", "Manalimiter").SetValue(new Slider(55)));
+            clear.AddBool("Attack barrels", "main.clear.barrel", false);
 
 			Menu settings = new Menu("Settings", "main.settings");
 			Menu wsettings = new Menu("W settings", "main.settings.w");
@@ -143,7 +145,7 @@ namespace Kekplank
                         Math.ClosestBarrelWherePosInExplosionRange(
                             Player.GetEnemiesInRange(SightRange).First().ServerPosition.To2D());
 
-                    if (bar != null) Casts.QMinion(bar.BarrelObj);
+                    if (bar != null && bar.IsReady) Casts.QMinion(bar.BarrelObj);
                 }
             }
 
@@ -177,7 +179,8 @@ namespace Kekplank
 
 	    private static void Clear()
 	    {
-            Casts.AttackBarrel();
+	        if (GetBool("main.clear.barrel")) if (Math.ClosestBarrel(Player.GetEnemiesInRange(SightRange).First().ServerPosition.To2D()) != null) Casts.AttackBarrel();
+
 	        if (GetBool("main.clear.q") && ManalimiterCheck("main.clear.qm"))
 	        {
 	            Obj_AI_Minion targetMinion = MinionManager.GetMinions(q.Range).FirstOrDefault() as Obj_AI_Minion;
