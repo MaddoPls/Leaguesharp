@@ -236,7 +236,11 @@ namespace Kekplank
 	        {
 	            if (!q.IsReady() || !Math.EnemyInBarrelExplosionRange()) return;
 	            Barrel closestBar = Math.ClosestReadyBarrel(Player.ServerPosition.To2D());
-	            if (closestBar.BarrelObj.GetEnemiesInRange(ExplosionRange).Count != 0) q.Cast(closestBar.BarrelObj);
+
+                if (Math.ClosestBarrel(closestBar.BarrelObj.Position.To2D()) != null || closestBar.BarrelObj.GetEnemiesInRange(ExplosionRange).Count != 0)
+                {
+                    q.Cast(closestBar.BarrelObj);
+                }
 	        }
 
 	        internal static void EMinion()
