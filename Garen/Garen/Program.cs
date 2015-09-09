@@ -73,6 +73,8 @@
 
         private static void Combo()
         {
+            if (Player.HasBuff("GarenE") && q.IsReady()) Utility.DelayAction.Add(1000, () => q.Cast());
+
             if (GetBool("main.combo.q") && GetBool("main.combo.e"))
             {
                 Casts.Q(GetBool("main.combo.w"));
@@ -126,7 +128,7 @@
             {
                 if (!q.IsReady()) return;
 
-                Obj_AI_Hero target = Player.GetEnemiesInRange(Player.AttackRange + 200).FirstOrDefault();
+                Obj_AI_Hero target = Player.GetEnemiesInRange(Player.AttackRange + r.Range).FirstOrDefault();
                 if (target == null) return;
                 q.Cast(target);
                 if (castW) W();
