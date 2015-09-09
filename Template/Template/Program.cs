@@ -139,7 +139,7 @@ namespace Template
             menu.AddItem(new MenuItem(name, displayName).SetValue(value));
         }
 
-        private static void AddSlider(this Menu menu, string displayName, string name, int startVal)
+        private static void AddManalimiter(this Menu menu, string displayName, string name, int startVal)
         {
             menu.AddItem(new MenuItem(name, displayName).SetValue(new Slider(startVal)));
         }
