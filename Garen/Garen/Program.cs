@@ -165,7 +165,7 @@
                 if (target.IsDead && DAMACIA)
                 {
                     DAMACIA = false;
-                    Game.Say(@"/all DEMACIA");
+                    Game.Say(@"/all DEMACIA!!");
                     Utility.DelayAction.Add(10000, () => DAMACIA = true);
                 }
             }
@@ -203,8 +203,8 @@
 
             Menu settings = new Menu("Settings", "main.settings");
             settings.AddBool("Auto ignite", "main.settings.ignite", true);
-            settings.AddBool("KS with r", "main.settings.ks", true);
-            settings.AddBool("SHOUT DAMACIA (only on R)", "main.settings.damacia", false);
+            settings.AddBool("KS with R", "main.settings.ks", true);
+            settings.AddBool("Shout DEMACIA (only on R)", "main.settings.damacia", false);
             settings.AddItem(
                 new MenuItem("main.settings.flee", "Flee/Chase").SetValue(new KeyBind(0x41, KeyBindType.Press)));
 
