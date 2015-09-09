@@ -96,7 +96,17 @@ namespace Sona
             {
                 if (!q.IsReady()) return;
                 Obj_AI_Hero tar = TargetSelector.GetTarget(Player, q.Range, q.DamageType, false);
-                if (tar != null) q.Cast();
+                if (tar != null)
+                {
+                    if (GetBool("main.harass.q2"))
+                    {
+                        q.CastIfWillHit(tar, 2);
+                    }
+                    else
+                    {
+                        q.Cast();
+                    }
+                }
             }
 
             internal static void QMinion()
@@ -232,6 +242,7 @@ namespace Sona
             Menu harass = new Menu("Harass", "main.harass");
             harass.AddBool("Use Q", "main.harass.q", true);
             harass.AddSlider("Q manalimiter", "main.harass.qm", 15);
+            harass.AddBool("Only Q when hits 2", "main.harass.q2", true);
             harass.AddBool("Attack minions", "main.harass.minions", false);
 
             Menu clear = new Menu("Clear", "main.clear");
