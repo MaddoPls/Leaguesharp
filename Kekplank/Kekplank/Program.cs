@@ -199,10 +199,13 @@ namespace Kekplank
 		    internal static void R()
 			{
 				if (!r.IsReady()) return;
-				float dmg = 360 + (240*r.Level) + ((Player.TotalMagicalDamage/10)*12);
+				float dmg = 360 + (240*r.Level) + (Player.TotalMagicalDamage);
 		        Obj_AI_Hero target = Player.GetEnemiesInRange(20000).FirstOrDefault(enemy => enemy.Health < dmg);
-				if (target == null) return;
-				r.CastOnUnit(target);
+		        if (target != null)
+		        {
+		            r.Cast(r.GetPrediction(target, true, r.Range, null).CastPosition);
+		        }
+
 			}
 
 			internal static void W()
