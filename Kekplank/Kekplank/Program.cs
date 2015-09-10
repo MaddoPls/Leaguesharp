@@ -90,10 +90,12 @@ namespace Kekplank
 			wsettings.AddBool("W enabled", "main.settings.w.enabled", true);
 			settings.AddSubMenu(wsettings);
 			settings.AddBool("Auto R", "main.settings.r", true);
+		    settings.AddItem(new MenuItem("main.settings.rminhit", "Min R targets hit").SetValue(new Slider(2, 1, 5)));
 			settings.AddBool("Auto ignite", "main.settings.ignite", true);
 			settings.AddItem(
 				new MenuItem("main.settings.disablee", "Disable E from casting").SetValue(new KeyBind(0x41, KeyBindType.Press)));
             settings.AddBool("Auto pop barrel with Q", "main.settings.aqe", true);
+		    settings.AddItem(new MenuItem("main.settings.et", "E disable time").SetValue(new Slider(2000, 1000, 5000)));
 
 			Menu drawings = new Menu("Drawings", "main.drawings");
 			drawings.AddBool("Draw Q", "main.drawings.q", true);
@@ -198,15 +200,22 @@ namespace Kekplank
 		{
 		    internal static void R()
 			{
-				//if (!r.IsReady()) return;
-				//float dmg = 360 + (240*r.Level) + (Player.TotalMagicalDamage);
-		  //      Obj_AI_Hero target = Player.GetEnemiesInRange(20000).FirstOrDefault(enemy => enemy.Health < dmg);
-		  //      if (target != null)
-		  //      {
-		  //          r.Cast(r.GetPrediction(target, true, r.Range, null).CastPosition);
-		  //      }
-
-			}
+		        if (!r.IsReady()) return;
+                float dmg = 360 + (240 * r.Level) + (Player.TotalMagicalDamage);
+                Obj_AI_Hero target = r.GetTarget(20000);
+                if (target == null) return;
+		        if (target.Health > dmg) return;
+		        int minhit = config.Item("main.settings.rminhit").GetValue<Slider>().Value;
+                switch (minhit)
+                {
+                    case 1:
+                        r.CastOnUnit(target);
+                        break;
+                    default:
+                        r.CastIfWillHit(target, minhit);
+                        break;
+                }
+            }
 
 			internal static void W()
 			{
@@ -393,7 +402,8 @@ namespace Kekplank
 		    {
 		        livebarrels.Add(new Barrel(sender as Obj_AI_Minion));
 		        eAllowed = false;
-                Utility.DelayAction.Add(2000, () => eAllowed = true);
+		        int disableT = config.Item("main.settings.et").GetValue<Slider>().Value;
+                Utility.DelayAction.Add(disableT, () => eAllowed = true);
 		    }
 		}
 
