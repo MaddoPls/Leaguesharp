@@ -44,18 +44,16 @@ namespace Poppy
 
             switch (orbwalker.ActiveMode)
             {
-                case Orbwalking.OrbwalkingMode.LastHit:
+                case Orbwalking.OrbwalkingMode.Combo:
+                    Combo();
                     break;
                 case Orbwalking.OrbwalkingMode.Mixed:
+                    Harass();
                     break;
+                case Orbwalking.OrbwalkingMode.LastHit:
                 case Orbwalking.OrbwalkingMode.LaneClear:
+                    Clear();
                     break;
-                case Orbwalking.OrbwalkingMode.Combo:
-                    break;
-                case Orbwalking.OrbwalkingMode.None:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -73,9 +71,8 @@ namespace Poppy
 
         internal static class Casts
         {
-            internal static void Q()
+            internal static void Q(HitChance hitchance)
             {
-
             }
 
             internal static void W()
@@ -114,12 +111,25 @@ namespace Poppy
             TargetSelector.AddToMenu(targetSelector);
 
             Menu combo = new Menu("Combo", "main.combo");
+            combo.AddBool("Use Q", "main.combo.q", true);
+            combo.AddBool("Use W", "main.combo.w", true);
+            combo.AddBool("Use E", "main.combo.e", true);
+            Menu rSettings = new Menu("R settings", "main.combo.rsettings");
+            rSettings.AddBool("Smart flash R", "main.settings.rsettings", true);
+            rSettings.AddItem(new MenuItem("main.settings.rsettings.minhit", "Min hit").SetValue(new Slider(2, 1, 5)));
+            rSettings.AddBool("Smart hourglass", "main.settings.rsettings.smarthourglass", true);
+            rSettings.AddItem(
+                new MenuItem(
+                    "main.settings.rsettings.info0",
+                    "Smart hourglass with cast hourglass less often\n but it will make sure enemies don't escape"));
+            rSettings.AddBool("Use hourglass", "main.settings.rsettings.hourglass", false);
 
             Menu harass = new Menu("Harass", "main.harass");
 
             Menu clear = new Menu("Clear", "main.clear");
 
             Menu settings = new Menu("Settings", "main.settings");
+            //rSettings.AddBool("Save allies in danger with r", "main.settings.rsettings.saveally", false);
 
             Menu drawings = new Menu("Drawings", "main.drawings");
 

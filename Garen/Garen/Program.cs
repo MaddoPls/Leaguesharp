@@ -219,6 +219,7 @@
 
         private static void Drawing_OnDraw(EventArgs args)
         {
+            if (!GetBool("main.drawings.enabled")) return;
             if (r.Level > 0)
             {
                 Render.Circle.DrawCircle(Player.Position, r.Range, r.IsReady() ? config.Item("main.drawings.r").GetValue<Color>() : Color.Red);
@@ -260,9 +261,11 @@
             settings.AddItem(new MenuItem("main.settings.flee", "Flee/Chase").SetValue(new KeyBind(0x41, KeyBindType.Press)));
             settings.AddBool("Use W on incoming dmg", "main.settings.w", true);
             settings.AddItem(new MenuItem("main.settings.whp", "Active on %hp will be dealt").SetValue(new Slider(2)));
+            settings.AddItem(new MenuItem("unfo2", "OnDamage broken atm"));
 
             Menu drawings = new Menu("Drawings", "main.drawings");
             drawings.AddItem(new MenuItem("main.drawings.r", "Draw R")).SetValue(Color.BlueViolet);
+            drawings.AddBool("Enable drawings", "main.drawings.enabled", true);
             //drawings.AddBool("Draw R", "main.drawings.r", true);
 
             config.AddSubMenu(combo);
