@@ -18,6 +18,40 @@ namespace Morgana
         private static Spell r = new Spell(SpellSlot.R);
         private static Spell ignite = new Spell(Player.GetSpellSlot("summonerdot"), 600, TargetSelector.DamageType.True);
 
+        private static PredictionSet Pred
+        {
+            get
+            {
+                switch (config.Item("").GetValue<StringList>().SelectedIndex)
+                {
+                    case 1:
+                        return PredictionSet.Common;
+                    case 2:
+                        return PredictionSet.SPrediction;
+                    default:
+                        return PredictionSet.Common;
+                }
+            }
+        }
+
+        private static HitChance MinHitChanceQ
+        {
+            get
+            {
+                switch (config.Item("").GetValue<StringList>().SelectedIndex)
+                {
+                    case 0:
+                        return HitChance.Medium;
+                    case 1:
+                        return HitChance.High;
+                    case 2:
+                        return HitChance.VeryHigh;
+                    default:
+                        return HitChance.Immobile;
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
             if (Game.Mode == GameMode.Running)
@@ -30,7 +64,7 @@ namespace Morgana
 
         private static void Game_OnGameStart(EventArgs args)
         {
-            if (Player.ChampionName != "") return;
+            if (Player.ChampionName != "Morgana") return;
 
             LoadMenu();
 
@@ -45,17 +79,15 @@ namespace Morgana
             switch (orbwalker.ActiveMode)
             {
                 case Orbwalking.OrbwalkingMode.LastHit:
+                case Orbwalking.OrbwalkingMode.LaneClear:
+                    Clear();
                     break;
                 case Orbwalking.OrbwalkingMode.Mixed:
-                    break;
-                case Orbwalking.OrbwalkingMode.LaneClear:
+                    Harass();
                     break;
                 case Orbwalking.OrbwalkingMode.Combo:
+                    Combo();
                     break;
-                case Orbwalking.OrbwalkingMode.None:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -105,7 +137,7 @@ namespace Morgana
 
         private static void LoadMenu()
         {
-            config = new Menu("", "main", true);
+            config = new Menu("Morgana", "main", true);
 
             Menu orb = config.AddSubMenu(new Menu("Orbwalker", "main.orbwalker"));
             orbwalker = new Orbwalking.Orbwalker(orb);
@@ -158,6 +190,12 @@ namespace Morgana
         private static int GetSliderValue(string name)
         {
             return config.Item(name).GetValue<Slider>().Value;
+        }
+
+        private enum PredictionSet
+        {
+            Common,
+            SPrediction
         }
     }
 }
