@@ -1,5 +1,5 @@
 # Leaguesharp
-Main repository transferred to Bitbucket.
+Other L# repository.
 https://bitbucket.org/HyunMi/leaguesharp/src
 
 ### LICENSE ###
