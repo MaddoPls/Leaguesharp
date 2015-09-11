@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BD9637C-8B42-422D-B78F-704EF8D15A9A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Anouncersharp</RootNamespace>
+    <AssemblyName>Anouncersharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PreBuildEvent />
+    <PostBuildEvent />
+    <OutputPath>bin\Release</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LeagueSharp">
+      <HintPath>D:\ToolSet\LeagueSharp\LeagueSharp\System\LeagueSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LeagueSharp.Common">
+      <HintPath>D:\ToolSet\LeagueSharp\LeagueSharp\System\LeagueSharp.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="LeagueSharp.SDK">
+      <HintPath>D:\ToolSet\LeagueSharp\LeagueSharp\System\LeagueSharp.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>D:\ToolSet\LeagueSharp\LeagueSharp\System\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="Handlers\ChatCommands.cs" />
+    <Compile Include="Handlers\Kills.cs" />
+    <Compile Include="Handlers\Notify.cs" />
+    <Compile Include="Handlers\Structures.cs" />
+    <Compile Include="Manage.cs" />
+    <Compile Include="MenuGen.cs" />
+    <Compile Include="PlayAbstractingLayer.cs" />
+    <Compile Include="Packs\Portal2.cs" />
+    <Compile Include="Packs\StanleyParable.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Soundplayers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\stanleyparable_structures_top_inhib_enemy.wav" />
+    <None Include="Resources\stanleyparable_structures_top_inhib.wav" />
+    <None Include="Resources\stanleyparable_structures_mid_tower_enemy_3.wav" />
+    <None Include="Resources\stanleyparable_structures_mid_tower_enemy_2.wav" />
+    <None Include="Resources\stanleyparable_structures_mid_tower_enemy_1.wav" />
+    <None Include="Resources\stanleyparable_structures_mid_tower_3.wav" />
+    <None Include="Resources\stanleyparable_structures_mid_tower_2.wav" />
+    <None Include="Resources\stanleyparable_structures_mid_tower_1.wav" />
+    <None Include="Resources\stanleyparable_structures_mid_inhib_enemy.wav" />
+    <None Include="Resources\stanleyparable_structures_mid_inhib.wav" />
+    <None Include="Resources\stanleyparable_structures_bot_tower_enemy_3.wav" />
+    <None Include="Resources\stanleyparable_structures_bot_tower_enemy_2.wav" />
+    <None Include="Resources\stanleyparable_structures_bot_tower_enemy_1.wav" />
+    <None Include="Resources\stanleyparable_structures_bot_tower_3.wav" />
+    <None Include="Resources\stanleyparable_structures_bot_tower_2.wav" />
+    <None Include="Resources\stanleyparable_structures_bot_tower_1.wav" />
+    <None Include="Resources\stanleyparable_structures_bot_inhib_enemy.wav" />
+    <None Include="Resources\stanleyparable_structures_bot_inhib.wav" />
+    <None Include="Resources\stanleyparable_structures_top_tower_enemy_3.wav" />
+    <None Include="Resources\stanleyparable_structures_top_tower_enemy_2.wav" />
+    <None Include="Resources\stanleyparable_structures_top_tower_enemy_1.wav" />
+    <None Include="Resources\stanleyparable_structures_top_tower_3.wav" />
+    <None Include="Resources\stanleyparable_structures_top_tower_2.wav" />
+    <None Include="Resources\stanleyparable_structures_top_tower_1.wav" />
+    <None Include="Resources\stanleyparable_welcome_2.wav" />
+    <None Include="Resources\stanleyparable_welcome_1.wav" />
+    <None Include="Resources\stanleyparable_notify_victory.wav" />
+    <None Include="Resources\stanleyparable_notify_minion_spawn.wav" />
+    <None Include="Resources\stanleyparable_notify_defeat.wav" />
+    <None Include="Resources\stanleyparable_welcome_7.wav" />
+    <None Include="Resources\stanleyparable_welcome_6.wav" />
+    <None Include="Resources\stanleyparable_welcome_5.wav" />
+    <None Include="Resources\stanleyparable_welcome_4.wav" />
+    <None Include="Resources\stanleyparable_welcome_3.wav" />
+    <None Include="Resources\stanleyparable_notify_first_blood.wav" />
+    <None Include="Resources\glados_notify_enemy_death_1.wav" />
+    <None Include="Resources\glados_notify_first_blood.wav" />
+    <None Include="Resources\glados_notify_death_1.wav" />
+    <None Include="Resources\glados_notify_death_2.wav" />
+    <None Include="Resources\glados_welcome_2.wav" />
+    <None Include="Resources\glados_welcome_3.wav" />
+    <None Include="Resources\glados_welcome_4.wav" />
+    <None Include="Resources\glados_welcome_5.wav" />
+    <None Include="Resources\glados_welcome_6.wav" />
+    <None Include="Resources\glados_welcome_7.wav" />
+    <None Include="Resources\glados_notify_defeat.wav" />
+    <None Include="Resources\glados_notify_minion_spawn.wav" />
+    <None Include="Resources\glados_notify_victory.wav" />
+    <None Include="Resources\glados_welcome_1.wav" />
+    <None Include="Resources\glados_structures_mid_tower_enemy.wav" />
+    <None Include="Resources\glados_structures_top_inhib.wav" />
+    <None Include="Resources\glados_structures_top_inhib_enemy.wav" />
+    <None Include="Resources\glados_structures_top_tower.wav" />
+    <None Include="Resources\glados_structures_top_tower_enemy.wav" />
+    <None Include="Resources\glados_structures_bot_inhib.wav" />
+    <None Include="Resources\glados_structures_bot_inhib_enemy.wav" />
+    <None Include="Resources\glados_structures_bot_tower.wav" />
+    <None Include="Resources\glados_structures_bot_tower_enemy.wav" />
+    <None Include="Resources\glados_structures_mid_inhib.wav" />
+    <None Include="Resources\glados_structures_mid_inhib_enemy.wav" />
+    <None Include="Resources\glados_structures_mid_tower.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glados_kills_quadra.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glados_kills_triple.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glados_kills_double.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glados_kills_penta.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
