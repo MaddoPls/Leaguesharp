@@ -158,27 +158,6 @@ namespace Anouncersharp.Packs
 
 		private static class AbstractionLayer
 		{
-			/*
-				Single sound
-					SoundPlayer player = new SoundPlayer(Resource.glados_notify_first_blood);
-					player.Play();
-					player.DisposePlayer(Resource.glados_notify_first_blood);
-				Multiple sounds with randomization
-					int index = Management.Misc.Rand.Next(1, Sounds.Portal2.Kills.EnemyFirstBlood.Item2);
-					switch (index)
-					{
-						case 1:
-							SoundPlayer player = new SoundPlayer(Resource.glados_notify_first_blood);
-							player.Play();
-							player.DisposePlayer(Resource.glados_notify_first_blood);
-							break;
-						case 2:
-							same as above but use the next sound
-							break;
-							etc etc ...
-					}
-			*/
-
 			public static class _Kills
 			{
 				public static void EnemyFirstblood()

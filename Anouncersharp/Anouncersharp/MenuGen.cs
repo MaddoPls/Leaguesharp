@@ -22,7 +22,7 @@ namespace Anouncersharp.Misc
 			}
 
 			Manage.Menu.AddItem(new MenuItem("seperator", ""));
-			Manage.Menu.AddItem(new MenuItem("by.blacky", "Made by blacky & HyunMi"));
+			Manage.Menu.AddItem(new MenuItem("by.blacky", "idea by blacky & coded HyunMi"));
 
 			Manage.Menu.AddToMainMenu();
 		}
