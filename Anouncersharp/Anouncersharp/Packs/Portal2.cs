@@ -201,7 +201,6 @@ namespace Anouncersharp.Packs
 					{
 						// ignored
 					}
-
 				}
 
 				public static void EnemyTriple()
@@ -626,8 +625,10 @@ namespace Anouncersharp.Packs
 					{
 						try
 						{
-
-						}
+                            SoundPlayer player = new SoundPlayer(Resource.glados_structures_mid_tower_enemy);
+                            player.Play();
+                            player.DisposePlayer(Resource.glados_structures_mid_tower_enemy);
+                        }
 						catch (Exception)
 						{
 							// ignored
@@ -819,8 +820,10 @@ namespace Anouncersharp.Packs
 					{
 						try
 						{
-
-						}
+                            SoundPlayer player = new SoundPlayer(Resource.glados_structures_mid_tower);
+                            player.Play();
+                            player.DisposePlayer(Resource.glados_structures_mid_tower);
+                        }
 						catch (Exception)
 						{
 							// ignored

@@ -92,7 +92,7 @@ namespace Anouncersharp
 			{
 				public static class Kills
 				{
-					public static int EnemyFirstBlood = 1;
+					public static int EnemyFirstBlood = 1;//
 					public static int EnemyKill = 1;
 					public static int EnemyDouble = 1;
 					public static int EnemyTriple = 1;
@@ -108,7 +108,7 @@ namespace Anouncersharp
 
 				public static class Notify
 				{
-					public static int Welcome = 1;
+					public static int Welcome = 7;
 					public static int Win = 1;
 					public static int Defeat = 1;
 					public static int MinionSpawn = 1;
@@ -118,15 +118,15 @@ namespace Anouncersharp
 				{
 					public static class Enemy
 					{
-						public static int Top_T1 = 1;
-						public static int Mid_T1 = 1;
-						public static int Bot_T1 = 1;
-						public static int Top_T2 = 1;
-						public static int Mid_T2 = 1;
-						public static int Bot_T2 = 1;
-						public static int Top_T3 = 1;
-						public static int Mid_T3 = 1;
-						public static int Bot_T3 = 1;
+						public static int Top_T1 = 3;
+						public static int Mid_T1 = 3;
+						public static int Bot_T1 = 3;
+						public static int Top_T2 = 3;
+						public static int Mid_T2 = 3;
+						public static int Bot_T2 = 3;
+						public static int Top_T3 = 3;
+						public static int Mid_T3 = 3;
+						public static int Bot_T3 = 3;
 						public static int Top_Inhib = 1;
 						public static int Mid_Inhib = 1;
 						public static int Bot_Inhib = 1;
@@ -135,15 +135,15 @@ namespace Anouncersharp
 
 					public static class Ally
 					{
-						public static int Top_T1 = 1;
-						public static int Mid_T1 = 1;
-						public static int Bot_T1 = 1;
-						public static int Top_T2 = 1;
-						public static int Mid_T2 = 1;
-						public static int Bot_T2 = 1;
-						public static int Top_T3 = 1;
-						public static int Mid_T3 = 1;
-						public static int Bot_T3 = 1;
+						public static int Top_T1 = 3;
+						public static int Mid_T1 = 3;
+						public static int Bot_T1 = 3;
+						public static int Top_T2 = 3;
+						public static int Mid_T2 = 3;
+						public static int Bot_T2 = 3;
+						public static int Top_T3 = 3;
+						public static int Mid_T3 = 3;
+						public static int Bot_T3 = 3;
 						public static int Top_Inhib = 1;
 						public static int Mid_Inhib = 1;
 						public static int Bot_Inhib = 1;
