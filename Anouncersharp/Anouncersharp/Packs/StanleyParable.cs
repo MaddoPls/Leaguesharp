@@ -741,19 +741,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_top_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_top_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_top_tower_3);
                                     break;
                             }
                         }
@@ -771,19 +771,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_mid_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_mid_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_mid_tower_3);
                                     break;
                             }
                         }
@@ -801,19 +801,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_bot_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_bot_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_bot_tower_3);
                                     break;
                             }
                         }
@@ -831,19 +831,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_top_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_top_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_top_tower_3);
                                     break;
                             }
                         }
@@ -861,19 +861,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_mid_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_mid_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_mid_tower_3);
                                     break;
                             }
                         }
@@ -891,19 +891,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_bot_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_bot_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_bot_tower_3);
                                     break;
                             }
                         }
@@ -921,19 +921,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_top_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_top_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_2);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_top_tower_2);
                                     break;
                             }
                         }
@@ -951,19 +951,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_mid_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_mid_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_mid_tower_3);
                                     break;
                             }
                         }
@@ -981,19 +981,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_bot_tower_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_bot_tower_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_bot_tower_3);
                                     break;
                             }
                         }
@@ -1035,9 +1035,9 @@ namespace Anouncersharp.Packs
                     {
                         try
                         {
-                            SoundPlayer player = new SoundPlayer(Resource.stanleyparable_structures_bot_inhib);
+                            SoundPlayer player = new SoundPlayer(Resource.glados_structures_bot_inhib);
                             player.Play();
-                            player.DisposePlayer(Resource.stanleyparable_structures_bot_inhib);
+                            player.DisposePlayer(Resource.glados_structures_bot_inhib);
                         }
                         catch (Exception)
                         {
