@@ -7,6 +7,10 @@ using LeagueSharp.Common;
 
 namespace Anouncersharp
 {
+    /*
+      Big thanks to blacky for giving me most of the soundfiles and making the menu
+      Thanks to hoes for letting me steal a bunch of vector to determine that tower positions  
+    */
 	public static class Program
 	{
 		public static Obj_AI_Hero Player { get { return ObjectManager.Player; } }

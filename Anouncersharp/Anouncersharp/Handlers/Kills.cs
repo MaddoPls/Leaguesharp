@@ -1,12 +1,10 @@
-﻿using Anouncersharp.Packs;
-using LeagueSharp;
+﻿using LeagueSharp;
 using Events = Anouncersharp.Enumerations.Events;
 
 namespace Anouncersharp.Handlers
 {
 	public static class Kills
 	{
-		//Thnx jodus for fixing this and thnx asuna for verifying and telling jodus that this was broken
 		public static void Game_OnNotify(GameNotifyEventArgs args)
 		{
 			if (!Manage.Menu.get_bool("announcer.kill")) return;

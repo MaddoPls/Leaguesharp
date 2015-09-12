@@ -8,7 +8,22 @@
         {
             if (args.Input.StartsWith(".")) args.Process = false;
 
-            //.SPECIFIER TEAM(0 == enemy, 1 == ally) TIER(1,2,3,4,5)
+            /*
+                .kill TEAM
+                .double TEAM
+                .triple TEAM
+                .quadra TEAM
+                .penta TEAM
+                TEAM can be 0 == enemy, 1 == ally
+                .welcome
+                .minions
+                .win
+                .loss
+                .tower TEAM LANE TIER
+                TEAM can be 0 == enemy, 1 == ally
+                LANE can be top/mid/bot
+                TIER can be 1,2,3, 4 == inhibs
+            */
             switch (args.Input)
             {
                 case ".fb 0":

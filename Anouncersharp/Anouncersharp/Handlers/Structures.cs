@@ -1,5 +1,4 @@
-﻿using Anouncersharp.Packs;
-using LeagueSharp;
+﻿using LeagueSharp;
 using LeagueSharp.SDK.Core.Enumerations;
 using LeagueSharp.SDK.Core.Extensions;
 using SharpDX;

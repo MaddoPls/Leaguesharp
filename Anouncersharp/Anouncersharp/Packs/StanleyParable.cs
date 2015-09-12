@@ -410,7 +410,7 @@ namespace Anouncersharp.Packs
                     {
                         try
                         {
-                            int index = Manage.Rand.Next(1, Manage.Sounds.StanleyParable.Structures.Enemy.Top_T1);
+                            int index = Manage.Rand.Next(1, Manage.Sounds.StanleyParable.Structures.Enemy.Top_T1 + 1);
                             switch (index)
                             {
                                 case 1:
