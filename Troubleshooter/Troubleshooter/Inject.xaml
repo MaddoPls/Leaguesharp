@@ -1,0 +1,20 @@
+﻿<Controls:MetroWindow x:Class="Troubleshooter.Inject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Inject" Height="418.92" Width="562">
+    <Grid>
+        <Label x:Name="label" Content="While I am downloading a fix in the background let me explain what other causes this problem&#xD;&#xA;could have." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="534" Height="40"/>
+        <Separator Margin="10,55,10,535" />
+        <Label x:Name="label1" Content="Well for one it could be you hit your max games a day, in that case you can check how long you&#xD;&#xA;will have to wait under your account status. Click account status button below to go&#xD;&#xA;Directly to your account settings. Next Gamecount Reset will tell you how long you will have&#xD;&#xA;to wait in order for you gamecount to be reset." HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="534" BorderThickness="1" BorderBrush="#FFD4D4D4"/>
+        <Label x:Name="label2" Content="On the other hand it could be that you are trying to play a ranked game without an active&#xD;&#xA;subscription. If you wish to play ranked please consider buying a subscription. You can check&#xD;&#xA;you current subscription status also via your account status. You can click the account status&#xD;&#xA;button below to go directly to your account status to check your subscription. If you wish to buy&#xD;&#xA;a subscription you can click the store button which will take you directly to the Leaguesharp store&#xD;&#xA;where you can buy a subscription." HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" Height="108" Width="534" BorderThickness="1" BorderBrush="#FFD4D4D4"/>
+        <Button x:Name="button" Content="Close" HorizontalAlignment="Left" Margin="463,346,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button1" Content="Account status" HorizontalAlignment="Left" Margin="353,346,0,0" VerticalAlignment="Top" Width="105" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Leaguesharp store" HorizontalAlignment="Left" Margin="228,346,0,0" VerticalAlignment="Top" Width="120" Click="button2_Click"/>
+        <Label x:Name="label4" Content="It could also be the case that you just logged into L# from another pc, when you log into L#&#xA;from another computer L# locks you HWID for 1 hour. What this means is that you will have to&#xA;wait for 1 hour in order to play with L# from another pc. L# does this in order to prevent account&#xA;sharing etc." HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top" Height="79" Width="534" BorderThickness="1" BorderBrush="#FFD4D4D4"/>
+
+    </Grid>
+</Controls:MetroWindow>
