@@ -364,34 +364,34 @@ namespace Anouncersharp.Packs
                                 player1.DisposePlayer(Resource.stanleyparable_welcome_1);
                                 break;
                             case 2:
-                                SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_welcome_1);
+                                SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_welcome_2);
                                 player2.Play();
-                                player2.DisposePlayer(Resource.stanleyparable_welcome_1);
+                                player2.DisposePlayer(Resource.stanleyparable_welcome_2);
                                 break;
                             case 3:
-                                SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_welcome_1);
+                                SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_welcome_3);
                                 player3.Play();
-                                player3.DisposePlayer(Resource.stanleyparable_welcome_1);
+                                player3.DisposePlayer(Resource.stanleyparable_welcome_3);
                                 break;
                             case 4:
-                                SoundPlayer player4 = new SoundPlayer(Resource.stanleyparable_welcome_1);
+                                SoundPlayer player4 = new SoundPlayer(Resource.stanleyparable_welcome_4);
                                 player4.Play();
-                                player4.DisposePlayer(Resource.stanleyparable_welcome_1);
+                                player4.DisposePlayer(Resource.stanleyparable_welcome_4);
                                 break;
                             case 5:
-                                SoundPlayer player5 = new SoundPlayer(Resource.stanleyparable_welcome_1);
+                                SoundPlayer player5 = new SoundPlayer(Resource.stanleyparable_welcome_5);
                                 player5.Play();
-                                player5.DisposePlayer(Resource.stanleyparable_welcome_1);
+                                player5.DisposePlayer(Resource.stanleyparable_welcome_5);
                                 break;
                             case 6:
-                                SoundPlayer player6 = new SoundPlayer(Resource.stanleyparable_welcome_1);
+                                SoundPlayer player6 = new SoundPlayer(Resource.stanleyparable_welcome_6);
                                 player6.Play();
-                                player6.DisposePlayer(Resource.stanleyparable_welcome_1);
+                                player6.DisposePlayer(Resource.stanleyparable_welcome_6);
                                 break;
                             case 7:
-                                SoundPlayer player7 = new SoundPlayer(Resource.stanleyparable_welcome_1);
+                                SoundPlayer player7 = new SoundPlayer(Resource.stanleyparable_welcome_7);
                                 player7.Play();
-                                player7.DisposePlayer(Resource.stanleyparable_welcome_1);
+                                player7.DisposePlayer(Resource.stanleyparable_welcome_7);
                                 break;
                         }
                     }
@@ -414,19 +414,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_3);
                                     break;
                             }
                         }
@@ -444,19 +444,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_3);
                                     break;
                             }
                         }
@@ -474,19 +474,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_3);
                                     break;
                             }
                         }
@@ -504,19 +504,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_3);
                                     break;
                             }
                         }
@@ -534,19 +534,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_3);
                                     break;
                             }
                         }
@@ -564,19 +564,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_3);
                                     break;
                             }
                         }
@@ -594,19 +594,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_top_tower_enemy_2);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_top_tower_enemy_2);
                                     break;
                             }
                         }
@@ -624,19 +624,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_mid_tower_enemy_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_mid_tower_enemy_3);
                                     break;
                             }
                         }
@@ -654,19 +654,19 @@ namespace Anouncersharp.Packs
                             switch (index)
                             {
                                 case 1:
-                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player1 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_1);
                                     player1.Play();
-                                    player1.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player1.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_1);
                                     break;
                                 case 2:
-                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player2 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_2);
                                     player2.Play();
-                                    player2.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player2.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_2);
                                     break;
                                 case 3:
-                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_notify_victory);
+                                    SoundPlayer player3 = new SoundPlayer(Resource.stanleyparable_structures_bot_tower_enemy_3);
                                     player3.Play();
-                                    player3.DisposePlayer(Resource.stanleyparable_notify_victory);
+                                    player3.DisposePlayer(Resource.stanleyparable_structures_bot_tower_enemy_3);
                                     break;
                             }
                         }
