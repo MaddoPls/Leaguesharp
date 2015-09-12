@@ -92,7 +92,7 @@ namespace Anouncersharp
 			{
 				public static class Kills
 				{
-					public static int EnemyFirstBlood = 1;//
+					public static int EnemyFirstBlood = 1;
 					public static int EnemyKill = 1;
 					public static int EnemyDouble = 1;
 					public static int EnemyTriple = 1;
