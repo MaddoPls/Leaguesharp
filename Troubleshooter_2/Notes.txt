@@ -2,3 +2,78 @@ Translators:
 	Portuguese	-> Kuton, DeftsuKay
 	Arabic		-> AAc
 	French		-> Taunty
+
+
+Links:
+Guides section:
+https://www.joduska.me/forum/topic/113889-leaguesharp-hotfixes/
+https://www.joduska.me/forum/topic/60752-getting-started-with-leaguesharp/
+https://www.joduska.me/forum/topic/35184-leaguesharp-video-tutorials/
+https://www.joduska.me/forum/topic/113101-guide-aio-problem-walkthrough/
+https://www.joduska.me/forum/topic/93962-what-is-cn/
+https://www.joduska.me/forum/topic/98914-how-to-revert-back-to-s4-hud/
+https://www.joduska.me/forum/topic/96748-leaguesharp-not-injecting-thread/
+https://www.joduska.me/forum/topic/92413-wtf-is-sdk-a-guide-by-fluxy/
+https://www.joduska.me/forum/topic/84109-basics-to-scripting/
+https://www.joduska.me/forum/topic/85227-error-183-fix/
+https://www.joduska.me/forum/topic/102319-how-to-correctly-prepinstall-l-and-setup-league/
+https://www.joduska.me/forum/topic/101716-how-to-enable-net-framework-35-windows-10/
+https://www.joduska.me/forum/topic/49185-tutorial-how-to-change-any-region-to-english-russia-turkey-etc/
+https://www.joduska.me/forum/topic/34513-guide-organize-your-assembles/
+https://www.joduska.me/forum/topic/67548-guide-how-to-buy-l-subscription-via-bitcoins/
+https://www.joduska.me/forum/topic/88299-how-to-keep-your-l-account-safe/
+https://www.joduska.me/forum/topic/88459-how-to-buy-a-leaguesharp-subscription-with-a-voucher-code/
+https://www.joduska.me/forum/topic/36947-fix-auth-error-when-starting-game-hwid/
+
+General section:
+https://www.joduska.me/forum/topic/115889-random-crashesfreezes/
+https://www.joduska.me/forum/topic/115580-exe-stopped-working/
+https://www.joduska.me/forum/topic/115838-is-there-a-way-to-put-delay-on-clicks/
+https://www.joduska.me/forum/topic/115483-l-does-not-work/
+https://www.joduska.me/forum/topic/115770-how-do-i-turn-this-drawing-off/
+https://www.joduska.me/forum/topic/115727-auth-failed/
+https://www.joduska.me/forum/topic/115670-deleted-appdata-now-doesnt-work/
+https://www.joduska.me/forum/topic/115675-not-supported-version-of-league-of-legends/
+https://www.joduska.me/forum/topic/115240-failed-to-create-dump-file/
+https://www.joduska.me/forum/topic/114977-cmd-prompt-on-inject/
+https://www.joduska.me/forum/topic/113613-install-button-is-making-l-close/
+https://www.joduska.me/forum/topic/54134-systemunauthorizedaccessexception-access-to-the-path/
+https://www.joduska.me/forum/topic/114704-assembly-auto-update-doesnt-update/
+https://www.joduska.me/forum/topic/114662-auth-failed-error-and-i-am-a-subscriber/
+https://www.joduska.me/forum/topic/114348-do-i-have-to-remove-the-leaguesharp-sdk-if-i-want-to-use-leaguesharp-common/
+https://www.joduska.me/forum/topic/114379-l-wont-recover-from-minimalistic-state/
+https://www.joduska.me/forum/topic/114252-how-to-disable-chat-in-game/
+https://www.joduska.me/forum/topic/114014-win10-error/
+https://www.joduska.me/forum/topic/114043-l-safe-to-use-now/
+https://www.joduska.me/forum/topic/113766-shift-not-working/
+https://www.joduska.me/forum/topic/113369-using-common-assemblies-with-a-sdk-assemblie/
+https://www.joduska.me/forum/topic/112435-random-league-of-legendsexe-isnt-working/
+https://www.joduska.me/forum/topic/113291-help-doubts-about-banned/
+https://www.joduska.me/forum/topic/113202-how-to-use-libs-by-the-right-ways/
+https://www.joduska.me/forum/topic/113022-2-l-accounts/
+https://www.joduska.me/forum/topic/112627-paymentwall-payment-held-now-accepted-no-subscription/
+https://www.joduska.me/forum/topic/112456-hwid-question/
+https://www.joduska.me/forum/topic/112342-lol-launcher-we-detected-a-data-potentially-corrupted/
+https://www.joduska.me/forum/topic/112294-cant-connect-to-joduskame/
+https://www.joduska.me/forum/topic/112213-hook-error-please-help-me/
+https://www.joduska.me/forum/topic/111902-windup-setting/
+https://www.joduska.me/forum/topic/111765-adm-onlypayment/
+https://www.joduska.me/forum/topic/111688-517-official-hotfix-help/
+https://www.joduska.me/forum/topic/110675-i-need-resources-en-us/
+https://www.joduska.me/forum/topic/110730-question-about-hotfixes-and-patches/
+https://www.joduska.me/forum/topic/110512-uninstall-sharp/
+https://www.joduska.me/forum/topic/110559-garena-server/
+
+Assembly section:
+https://www.joduska.me/forum/topic/115835-target-selector-problem-any-assembly/
+https://www.joduska.me/forum/topic/115661-sdk-scripts-doesnt-show-up-in-the-menu/
+https://www.joduska.me/forum/topic/113112-champion-randomly-stops/
+https://www.joduska.me/forum/topic/114882-orbwalker-going-towards-ennemy/
+https://www.joduska.me/forum/topic/114970-how-to-give-settings-on-assemblies-to-others/
+https://www.joduska.me/forum/topic/114362-i-installed-visual-studio-2015-some-assemblies-not-loading/
+https://www.joduska.me/forum/topic/114347-leaguesharpsdk-disable-capslock/
+https://www.joduska.me/forum/topic/114273-tracker-problems/
+https://www.joduska.me/forum/topic/114071-script-auto-dissapear/
+https://www.joduska.me/forum/topic/114097-canceling-aa/
+https://www.joduska.me/forum/topic/113843-baseult3-problems/
+to be continued

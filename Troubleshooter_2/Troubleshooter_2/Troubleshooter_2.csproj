@@ -90,13 +90,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\Program.cs" />
+    <Compile Include="Enumerations\Categories.cs" />
+    <Compile Include="Enumerations\Guides\Assemblies.cs" />
+    <Compile Include="Enumerations\Guides\Forum.cs" />
+    <Compile Include="Enumerations\Guides\General.cs" />
+    <Compile Include="Enumerations\Guides\Loader.cs" />
+    <Compile Include="Enumerations\Guides\Store.cs" />
+    <Compile Include="Enumerations\Problems\Assemblies.cs" />
+    <Compile Include="Enumerations\Problems\Forum.cs" />
+    <Compile Include="Enumerations\Problems\General.cs" />
+    <Compile Include="Enumerations\Problems\Loader.cs" />
+    <Compile Include="Enumerations\Problems\Store.cs" />
     <Compile Include="Resources\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Main.xaml.cs">
-      <DependentUpon>Main.xaml</DependentUpon>
+    <Compile Include="Views\Windows\Startup.xaml.cs">
+      <DependentUpon>Startup.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -112,7 +124,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -127,10 +141,40 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Class\Guides\Assemblies\" />
+    <Folder Include="Class\Guides\Forum\" />
+    <Folder Include="Class\Guides\General\" />
+    <Folder Include="Class\Guides\Loader\" />
+    <Folder Include="Class\Guides\Store\" />
+    <Folder Include="Class\Problems\Assemblies\" />
+    <Folder Include="Class\Problems\Forum\" />
+    <Folder Include="Class\Problems\General\" />
+    <Folder Include="Class\Problems\Loader\" />
+    <Folder Include="Class\Problems\Store\" />
     <Folder Include="Languages\" />
+    <Folder Include="Views\Pages\Guides\Assemblies\" />
+    <Folder Include="Views\Pages\Guides\Forum\" />
+    <Folder Include="Views\Pages\Guides\General\" />
+    <Folder Include="Views\Pages\Guides\Loader\" />
+    <Folder Include="Views\Pages\Guides\Store\" />
+    <Folder Include="Views\Pages\Problems\Assemblies\" />
+    <Folder Include="Views\Pages\Problems\Forum\" />
+    <Folder Include="Views\Pages\Problems\General\" />
+    <Folder Include="Views\Pages\Problems\Loader\" />
+    <Folder Include="Views\Pages\Problems\Store\" />
+    <Folder Include="Views\Windows\Guides\Assemblies\" />
+    <Folder Include="Views\Windows\Guides\Forum\" />
+    <Folder Include="Views\Windows\Guides\General\" />
+    <Folder Include="Views\Windows\Guides\Loader\" />
+    <Folder Include="Views\Windows\Guides\Store\" />
+    <Folder Include="Views\Windows\Problems\Assemblies\" />
+    <Folder Include="Views\Windows\Problems\Forum\" />
+    <Folder Include="Views\Windows\Problems\General\" />
+    <Folder Include="Views\Windows\Problems\Loader\" />
+    <Folder Include="Views\Windows\Problems\Store\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Windows\Main.xaml">
+    <Page Include="Views\Windows\Startup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
