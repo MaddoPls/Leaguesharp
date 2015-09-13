@@ -63,6 +63,15 @@ namespace Anouncersharp {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Degrec {
+            get {
+                return ResourceManager.GetStream("Degrec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream glados_kills_double {
             get {
                 return ResourceManager.GetStream("glados_kills_double", resourceCulture);

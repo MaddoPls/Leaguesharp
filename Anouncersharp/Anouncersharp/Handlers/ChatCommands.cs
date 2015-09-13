@@ -1,5 +1,7 @@
 ﻿namespace Anouncersharp.Handlers
 {
+    using System.Media;
+
     using LeagueSharp;
 
     public static class ChatCommands
@@ -26,6 +28,11 @@
             */
             switch (args.Input)
             {
+                case ".degrec":
+                    SoundPlayer degreced = new SoundPlayer(Resource.Degrec);
+                    degreced.Play();
+                    degreced.DisposePlayer(Resource.Degrec);
+                    break;
                 case ".fb 0":
                     PlayAbstractingLayer.Kill(Enumerations.Events.Kills.EnemyFirstblood);
                     break;

@@ -81,7 +81,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Degrec.wav" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stanleyparable_structures_top_inhib_enemy.wav" />
     <None Include="Resources\stanleyparable_structures_top_inhib.wav" />
