@@ -1,6 +1,6 @@
 ﻿namespace Troubleshooter_2.Enumerations
 {
-    internal enum Languages
+    public enum Languages
     {
         Arabic,
         Bulgarian,

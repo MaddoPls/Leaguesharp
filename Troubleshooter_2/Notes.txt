@@ -1,0 +1,4 @@
+Translators:
+	Portuguese	-> Kuton, DeftsuKay
+	Arabic		-> AAc
+	French		-> Taunty
