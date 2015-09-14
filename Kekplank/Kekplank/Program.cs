@@ -200,7 +200,7 @@ namespace Kekplank
             }
         }
 
-        private static void Lasthit()
+        private static void Lasthit() //by Maddo 
         {
             if (GetBool("main.lasthit.q") && ManalimiterCheck("main.lasthit.qm"))
             {
