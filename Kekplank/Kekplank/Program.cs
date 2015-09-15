@@ -71,11 +71,17 @@ namespace Kekplank
 			Menu harass = new Menu("Harass", "main.harass");
 			harass.AddBool("Use Q", "main.harass.q", true);
 			harass.AddItem(new MenuItem("main.harass.qm", "Manalimiter").SetValue(new Slider(55)));
+                        harass.AddBool("Lasthit with Q", "main.lassthit.q", true);
+            		harass.AddItem(new MenuItem("main.lassthit.qm", "Manalimiter").SetValue(new Slider(55)));
+
+            		Menu lasthit = new Menu("Lasthit", "main.lasthit");
+            		lasthit.AddBool("Use Q", "main.lasthit.q", true);
+            		lasthit.AddItem(new MenuItem("main.lasthit.qm", "Manalimiter").SetValue(new Slider(55)));
 
 			Menu clear = new Menu("Clear", "main.clear");
 			clear.AddBool("Q minions", "main.clear.q", true);
 			clear.AddItem(new MenuItem("main.clear.qm", "Manalimiter").SetValue(new Slider(55)));
-            clear.AddBool("Attack barrels", "main.clear.barrel", false);
+            		clear.AddBool("Attack barrels", "main.clear.barrel", false);
 
 			Menu settings = new Menu("Settings", "main.settings");
 			Menu wsettings = new Menu("W settings", "main.settings.w");
@@ -90,12 +96,12 @@ namespace Kekplank
 			wsettings.AddBool("W enabled", "main.settings.w.enabled", true);
 			settings.AddSubMenu(wsettings);
 			settings.AddBool("Auto R", "main.settings.r", true);
-		    settings.AddItem(new MenuItem("main.settings.rminhit", "Min R targets hit").SetValue(new Slider(2, 1, 5)));
+			 settings.AddItem(new MenuItem("main.settings.rminhit", "Min R targets hit").SetValue(new Slider(2, 1, 5)));
 			settings.AddBool("Auto ignite", "main.settings.ignite", true);
 			settings.AddItem(
 				new MenuItem("main.settings.disablee", "Disable E from casting").SetValue(new KeyBind(0x41, KeyBindType.Press)));
-            settings.AddBool("Auto pop barrel with Q", "main.settings.aqe", true);
-		    settings.AddItem(new MenuItem("main.settings.et", "E disable time").SetValue(new Slider(2000, 1000, 5000)));
+        		 settings.AddBool("Auto pop barrel with Q", "main.settings.aqe", true);
+		    	settings.AddItem(new MenuItem("main.settings.et", "E disable time").SetValue(new Slider(2000, 1000, 5000)));
 
 			Menu drawings = new Menu("Drawings", "main.drawings");
 			drawings.AddBool("Draw Q", "main.drawings.q", true);
@@ -168,18 +174,27 @@ namespace Kekplank
             }
         }
 
-	    private static void Harass()
-	    {
-	        if (GetBool("main.harass.q") && ManalimiterCheck("main.harass.qm"))
-	        {
+	   private static void Harass()
+        {
+            if (GetBool("main.harass.q") && ManalimiterCheck("main.harass.qm"))
+            {
                 Obj_AI_Hero target = TargetSelector.GetTarget(q.Range, q.DamageType);
-	            if (target != null)
-	            {
+                if (target != null)
+                {
                     Casts.QHero(target);
-                }
+                    }
 
-            }
-	    }
+                if (GetBool("main.lassthit.q") && ManalimiterCheck("main.lassthit.qm"))
+                {
+                    Obj_AI_Minion targetMinion = MinionManager.GetMinions(q.Range).FirstOrDefault() as Obj_AI_Minion;
+                    if (targetMinion != null)
+                    {
+                        Casts.QMinion(targetMinion);
+                    }
+                }
+           }
+        }
+
 
 	    private static void Clear()
 	    {
@@ -194,6 +209,19 @@ namespace Kekplank
 	            }
 	        }
 	    }
+	    
+	    private static void Lasthit()
+        {
+            if (GetBool("main.lasthit.q") && ManalimiterCheck("main.lasthit.qm"))
+            {
+                Obj_AI_Minion targetMinion = MinionManager.GetMinions(q.Range).FirstOrDefault() as Obj_AI_Minion;
+                if (targetMinion != null)
+                {
+                    Casts.QMinion(targetMinion);
+
+                }
+            }
+        }
 
 
 	    private static class Casts
