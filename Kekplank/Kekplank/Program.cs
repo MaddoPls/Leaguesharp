@@ -71,6 +71,8 @@ namespace Kekplank
             Menu harass = new Menu("Harass", "main.harass");
             harass.AddBool("Use Q", "main.harass.q", true);
             harass.AddItem(new MenuItem("main.harass.qm", "Manalimiter").SetValue(new Slider(55)));
+            harass.AddBool("Lasthit with Q", "main.lassthit.q", true);
+            harass.AddItem(new MenuItem("main.lassthit.qm", "Manalimiter").SetValue(new Slider(55)))
 
             Menu lasthit = new Menu("Lasthit", "main.lasthit");
             lasthit.AddBool("Use Q", "main.lasthit.q", true);
@@ -173,7 +175,7 @@ namespace Kekplank
             }
         }
 
-        private static void Harass()
+        private static void Harass() //or mixed :^)
         {
             if (GetBool("main.harass.q") && ManalimiterCheck("main.harass.qm"))
             {
@@ -181,9 +183,17 @@ namespace Kekplank
                 if (target != null)
                 {
                     Casts.QHero(target);
-                }
+                    }
 
-            }
+                if (GetBool("main.lassthit.q") && ManalimiterCheck("main.lassthit.qm"))
+                {
+                    Obj_AI_Minion targetMinion = MinionManager.GetMinions(q.Range).FirstOrDefault() as Obj_AI_Minion;
+                    if (targetMinion != null)
+                    {
+                        Casts.QMinion(targetMinion);
+                    }
+                }
+           }
         }
 
         private static void Clear()
